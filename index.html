@@ -41,8 +41,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 500px;
-      width: 1200px;
+      height: 53vh;
+      width: 63vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -52,36 +52,41 @@
     .title h1 {
       text-transform: uppercase;
       color: #fefefe;
-      font-size: 4em;
+      font-size: 2em;
     }
+      @media screen and (max-width: 769px){
+        .title h1 {
+          font-size: 1em;
+        }
+      }
     .trait {
       position: absolute;
     }
     .trait.height {
       width: 5px;
-      height: 500px;
+      height: 53vh;
       background-color: #030303;
     }
     .trait.height.left {
-      left: 360px;
-      bottom: 218px;
+      left: 18.5vw;
+      bottom: 23.3vh;
     }
     .trait.height.right {
-      right: 360px;
-      top: 219px;
+      right: 18.5vw;
+      top: 23.3vh;
     }
     .trait.width {
-      width: 1200px;
+      width: 63vw;
       height: 5px;
       background-color: #030303;
     }
     .trait.width.left {
-      top: 219px;
-      left: 360px;
+      top: 23.2vh;
+      left: 18.5vw;
     }
     .trait.width.right {
-      bottom: 219px;
-      right: 360px;
+      bottom: 23.2vh;
+      right: 18.5vw;
     }
   </style>
 </head>
@@ -104,8 +109,8 @@
 
     document.addEventListener('click', () => {
       gsap.timeline().to('.wrapper', 0.5,{opacity: 1}, 'start')
-        .to('.height', 1, {height: '500px'}, 'start')
-        .to('.width', 1, {width: '1200px'}, 'start')
+        .to('.height', 1, {height: '53vh'}, 'start')
+        .to('.width', 1, {width: '63vw'}, 'start')
         .staggerTo('.container, .title', 0.5, {opacity: 1}, 0.5, 'start-=0.1').timeScale(2)
     })
   </script>
