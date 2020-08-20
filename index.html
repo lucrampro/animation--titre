@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: nleft;
+    }
+    body {
+      position: relative;
+      background-size: cover;
+      height: 100vh;
+      width: 100vw;
+      background-image: url('https://www.cadre-dirigeant-magazine.com/wp-content/uploads/2018/12/startup-et-startupers.jpg');
+      background-size: cover;
+    }
+    .wrapper {
+      background-image: url('https://www.cadre-dirigeant-magazine.com/wp-content/uploads/2018/12/startup-et-startupers.jpg');
+      background-size: 111% 111%;
+      background-position:  center;
+      position: absolute;
+      top: 50%;
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 90vh;
+      width: 90vw;
+      opacity: 1;
+    }
+    .wrapper .container {
+      height: 100%;
+      width: 100%;
+    }
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 500px;
+      width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    }
+    .title h1 {
+      text-transform: uppercase;
+      color: #fefefe;
+      font-size: 4em;
+    }
+    .trait {
+      position: absolute;
+    }
+    .trait.height {
+      width: 5px;
+      height: 500px;
+      background-color: #030303;
+    }
+    .trait.height.left {
+      left: 360px;
+      bottom: 218px;
+    }
+    .trait.height.right {
+      right: 360px;
+      top: 219px;
+    }
+    .trait.width {
+      width: 1200px;
+      height: 5px;
+      background-color: #030303;
+    }
+    .trait.width.left {
+      top: 219px;
+      left: 360px;
+    }
+    .trait.width.right {
+      bottom: 219px;
+      right: 360px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container"></div>
+  </div>
+  <div class="title">
+    <h1>partie 1 : XXXXXXXXXXXX</h1>
+  </div>
+  <div class="trait height left"></div>
+  <div class="trait height right"></div>
+  <div class="trait width left"></div>
+  <div class="trait width right"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
+  <script>
+    gsap.timeline().set('.wrapper, .container, .title', {opacity: 0})
+      .set('.height', {height: '0px'})
+      .set('.width', {width: '0px'})
+
+    document.addEventListener('click', () => {
+      gsap.timeline().to('.wrapper', 0.5,{opacity: 1}, 'start')
+        .to('.height', 1, {height: '500px'}, 'start')
+        .to('.width', 1, {width: '1200px'}, 'start')
+        .staggerTo('.container, .title', 0.5, {opacity: 1}, 0.5, 'start-=0.1').timeScale(2)
+    })
+  </script>
+</body>
+</html>
